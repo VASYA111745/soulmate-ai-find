@@ -1,6 +1,6 @@
 // App Configuration - Easy to change branding
 export const APP_CONFIG = {
-  name: "NovaDate AI",
+  name: "Lovio",
   tagline: "Познакомься с теми, кто действительно тебе подходит",
   description: "ИИ-сервис знакомств нового поколения",
   version: "1.0.0",
