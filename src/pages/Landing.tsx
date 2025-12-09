@@ -159,7 +159,7 @@ export default function Landing() {
               <Card variant="glass" className="max-w-xs mx-auto overflow-hidden">
                 <div className="aspect-[3/4] relative">
                   <img
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400"
+                    src="/images/hero-pool.svg"
                     alt="Profile preview"
                     className="w-full h-full object-cover"
                   />

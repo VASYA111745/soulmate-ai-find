@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Edit2, Camera, Plus, Sparkles, AlertCircle, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -23,16 +23,16 @@ export default function Profile() {
   const [suggestions, setSuggestions] = useState<ProfileSuggestion[]>([]);
   const [loadingSuggestions, setLoadingSuggestions] = useState(true);
 
-  useEffect(() => {
-    loadSuggestions();
-  }, []);
-
-  const loadSuggestions = async () => {
+  const loadSuggestions = useCallback(async () => {
     setLoadingSuggestions(true);
     const data = await suggestProfileImprovements(profile);
     setSuggestions(data);
     setLoadingSuggestions(false);
-  };
+  }, [profile]);
+
+  useEffect(() => {
+    loadSuggestions();
+  }, [loadSuggestions]);
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {
