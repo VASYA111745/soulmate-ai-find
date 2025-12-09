@@ -2,6 +2,7 @@ import { ArrowRight, Clock, User } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { APP_CONFIG } from "@/config/app";
 
 const blogPosts = [
   {
@@ -10,7 +11,7 @@ const blogPosts = [
     excerpt: "5 проверенных стратегий, которые помогут начать разговор и получить ответ",
     category: "Советы",
     readTime: "5 мин",
-    author: "Команда Lovio",
+    author: "Команда NovaDate AI",
     image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600",
     date: "28 ноя 2024",
   },
@@ -30,7 +31,7 @@ const blogPosts = [
     excerpt: "Разбираем типичные ошибки и показываем, как их исправить с помощью ИИ",
     category: "Профиль",
     readTime: "6 мин",
-    author: "Команда Lovio",
+    author: "Команда NovaDate AI",
     image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600",
     date: "20 ноя 2024",
   },
@@ -75,7 +76,7 @@ export default function Blog() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
-            Блог <span className="gradient-text">Lovio</span>
+            Блог <span className="gradient-text">{APP_CONFIG.name}</span>
           </h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Советы по знакомствам, истории успеха и последние новости из мира ИИ-дейтинга
