@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { path: "/feed", icon: Home, label: "Лента" },
   { path: "/chat", icon: MessageCircle, label: "Чаты" },
-  { path: "/ai-assistant", icon: Sparkles, label: "ИИ" },
+  { path: "/ai-agent", icon: Sparkles, label: "AI" },
   { path: "/profile", icon: User, label: "Профиль" },
 ];
 

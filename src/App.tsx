@@ -12,6 +12,7 @@ import Profile from "./pages/Profile";
 import Chat from "./pages/Chat";
 import AIAssistant from "./pages/AIAssistant";
 import Pricing from "./pages/Pricing";
+import Checkout from "./pages/Checkout";
 import Safety from "./pages/Safety";
 import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
@@ -32,8 +33,9 @@ const App = () => (
             <Route path="/feed" element={<Feed />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/chat" element={<Chat />} />
-            <Route path="/ai-assistant" element={<AIAssistant />} />
+            <Route path="/ai-agent" element={<AIAssistant />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/checkout" element={<Checkout />} />
             <Route path="/safety" element={<Safety />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="*" element={<NotFound />} />

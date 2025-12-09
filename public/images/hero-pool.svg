@@ -1,0 +1,53 @@
+<svg width="720" height="1600" viewBox="0 0 720 1600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Портрет девушки в бассейне</title>
+  <desc id="desc">Статичное изображение для героя NovaDate: девушка с сиреневыми волосами в соломенной шляпе в голубом бассейне.</desc>
+  <defs>
+    <linearGradient id="water" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#9be7ff" />
+      <stop offset="50%" stop-color="#5dd0ff" />
+      <stop offset="100%" stop-color="#2a9fcf" />
+    </linearGradient>
+    <radialGradient id="light" cx="60%" cy="10%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="hair" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d7c5ff" />
+      <stop offset="100%" stop-color="#b48bff" />
+    </linearGradient>
+    <linearGradient id="hat" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f6e7c5" />
+      <stop offset="100%" stop-color="#d8c08a" />
+    </linearGradient>
+    <linearGradient id="skin" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f7d5c1" />
+      <stop offset="100%" stop-color="#e3ae91" />
+    </linearGradient>
+    <linearGradient id="dress" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d8dffb" />
+      <stop offset="100%" stop-color="#a7b5ff" />
+    </linearGradient>
+  </defs>
+  <rect width="720" height="1600" fill="url(#water)" />
+  <rect width="720" height="1600" fill="url(#light)" />
+  <ellipse cx="360" cy="890" rx="360" ry="320" fill="#1b7aa8" opacity="0.2" />
+  <ellipse cx="360" cy="940" rx="360" ry="340" fill="#fff" opacity="0.08" />
+  <ellipse cx="360" cy="1000" rx="330" ry="320" fill="#fff" opacity="0.08" />
+  <ellipse cx="360" cy="1060" rx="300" ry="300" fill="#fff" opacity="0.06" />
+  <path d="M200 540 C240 440 480 430 520 540 C550 620 540 780 480 840 C430 890 270 890 230 820 C180 730 170 620 200 540 Z" fill="url(#hat)" stroke="#c6a56f" stroke-width="10" />
+  <ellipse cx="360" cy="560" rx="240" ry="80" fill="#f4e6c6" opacity="0.4" />
+  <ellipse cx="360" cy="540" rx="210" ry="70" fill="#f4e6c6" opacity="0.55" />
+  <path d="M280 520 C300 480 420 470 440 520 C470 590 450 720 360 730 C280 720 250 610 280 520 Z" fill="#f9f2da" opacity="0.85" />
+  <path d="M250 580 C260 480 470 480 470 580 C470 660 420 760 360 760 C290 760 250 660 250 580 Z" fill="url(#hair)" />
+  <path d="M310 620 C310 550 420 540 420 620 C420 690 410 760 360 760 C320 760 310 690 310 620 Z" fill="url(#skin)" />
+  <path d="M295 700 C320 690 400 690 425 700 C460 720 490 780 490 840 C490 920 230 920 230 840 C230 780 260 720 295 700 Z" fill="url(#dress)" opacity="0.95" />
+  <path d="M250 890 Q360 930 470 890" fill="none" stroke="#f7f7ff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" />
+  <circle cx="310" cy="610" r="8" fill="#5a3b33" />
+  <circle cx="410" cy="610" r="8" fill="#5a3b33" />
+  <path d="M330 650 Q360 670 390 650" fill="none" stroke="#5a3b33" stroke-width="6" stroke-linecap="round" />
+  <path d="M295 595 Q360 560 425 595" fill="none" stroke="#4a2f2a" stroke-width="10" opacity="0.35" />
+  <path d="M230 880 C260 830 460 830 490 880" fill="url(#skin)" opacity="0.3" />
+  <rect x="210" y="1020" width="300" height="40" rx="12" fill="#e4f5ff" opacity="0.25" />
+  <rect x="260" y="960" width="200" height="36" rx="10" fill="#d8f2ff" opacity="0.3" />
+  <text x="50%" y="1540" text-anchor="middle" fill="#ffffff" fill-opacity="0.8" font-size="28" font-family="'Inter', 'SF Pro Display', 'Arial', sans-serif">NovaDate AI</text>
+</svg>

@@ -1,5 +1,17 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles, Shield, Heart, Users, Zap, MessageCircle } from "lucide-react";
+import {
+  ArrowRight,
+  Sparkles,
+  Shield,
+  Heart,
+  Users,
+  Zap,
+  MessageCircle,
+  Brain,
+  Quote,
+  ShieldCheck,
+  BadgeCheck,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { APP_CONFIG, TEXTS } from "@/config/app";
@@ -33,6 +45,59 @@ const stats = [
   { value: "50K+", label: "Пар в месяц" },
 ];
 
+const aiPrompts = [
+  "Помоги улучшить мой профиль",
+  "Придумай первое сообщение этому человеку",
+  "Подготовь меня к первому свиданию",
+  "Подскажи, как вежливо завершить диалог",
+];
+
+const testimonials = [
+  {
+    name: "Анна и Дмитрий",
+    city: "Москва",
+    story: "Познакомились через подборку AI Matchmaker и нашли общие ценности уже на первом созвоне.",
+    result: "Вместе 8 месяцев",
+  },
+  {
+    name: "Мария",
+    city: "Санкт-Петербург",
+    story: "ИИ подсказал, как обновить профиль и что написать первому матчу. Получила 3 свидания за неделю.",
+    result: "+120% больше откликов",
+  },
+  {
+    name: "Илья",
+    city: "Казань",
+    story: "Использую подсказки в чатах, чтобы поддерживать диалог и чувствовать себя увереннее.",
+    result: "5 тёплых знакомств",
+  },
+];
+
+const pricingPreview = [
+  {
+    id: "free",
+    name: "Бесплатный",
+    features: ["Базовая лента", "Ограниченные лайки", "3 ИИ-подсказки"],
+  },
+  {
+    id: "premium",
+    name: "Премиум",
+    features: ["Больше лайков", "Расширенные фильтры", "Приоритет в выдаче"],
+  },
+  {
+    id: "premium_ai",
+    name: "Премиум + AI",
+    highlighted: true,
+    features: ["Полный доступ к AI", "Глубокий анализ профиля", "Ежедневные подборки"],
+  },
+];
+
+const safetyTips = [
+  "Проверка личности и фото",
+  "Сообщить о подозрительном профиле в один клик",
+  "Чёткие советы по безопасным встречам",
+];
+
 export default function Landing() {
   return (
     <div className="min-h-screen">
@@ -53,12 +118,14 @@ export default function Landing() {
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="gradient-text">{TEXTS.hero.title.split('.')[0]}.</span>
+                <span className="gradient-text">
+                  {TEXTS.hero.title.split("С ИИ-подбором")[0]}
+                </span>
                 <br />
                 <span className="text-foreground">С ИИ-подбором.</span>
               </h1>
 
-              <p className="text-lg text-muted-foreground max-w-lg">
+              <p className="text-lg text-muted-foreground max-w-xl">
                 {TEXTS.hero.subtitle}
               </p>
 
@@ -92,7 +159,7 @@ export default function Landing() {
               <Card variant="glass" className="max-w-xs mx-auto overflow-hidden">
                 <div className="aspect-[3/4] relative">
                   <img
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400"
+                    src="/images/hero-pool.svg"
                     alt="Profile preview"
                     className="w-full h-full object-cover"
                   />
@@ -172,6 +239,102 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* AI Agent preview */}
+      <section className="py-24 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-neon-purple/5 via-transparent to-neon-cyan/5" />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12">
+            <div>
+              <p className="text-sm text-primary flex items-center gap-2 mb-2">
+                <Sparkles size={16} /> AI Matchmaker
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold">
+                Знакомства с персональным AI-агентом
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mt-3">
+                Помогаем в подборе пар, оформлении профиля и переписке. Попробуйте готовые подсказки или общайтесь с агентом как с личным коучем.
+              </p>
+            </div>
+            <Link to="/ai-agent">
+              <Button variant="gradient" size="lg" className="flex items-center gap-2">
+                Открыть AI-агента
+                <ArrowRight size={18} />
+              </Button>
+            </Link>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-6">
+            <Card variant="glass" className="p-6 space-y-4">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="h-10 w-10 rounded-xl bg-primary/15 flex items-center justify-center">
+                  <Brain className="text-primary" size={20} />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Попробуйте</p>
+                  <h3 className="text-xl font-semibold">Готовые запросы</h3>
+                </div>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {aiPrompts.map((prompt) => (
+                  <div key={prompt} className="p-4 rounded-2xl bg-secondary/40 border border-glass-border/60">
+                    <p className="text-sm text-muted-foreground">{prompt}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="flex items-center justify-between rounded-2xl border border-dashed border-primary/40 p-4">
+                <div>
+                  <p className="text-xs uppercase tracking-wide text-primary">Подбор пары</p>
+                  <p className="text-sm text-muted-foreground">Совместимость с Анной: 92%</p>
+                </div>
+                <div className="flex items-center gap-2 text-primary">
+                  <BadgeCheck size={18} />
+                  <span className="text-sm">рассчитано AI</span>
+                </div>
+              </div>
+            </Card>
+
+            <Card variant="glass" className="p-6 flex flex-col gap-4">
+              <div className="flex items-center gap-2 text-sm text-primary">
+                <Sparkles size={16} />
+                AI-чат
+              </div>
+              <div className="space-y-3">
+                {[
+                  { role: "assistant", text: "Привет! Я помогу оформить профиль и подобрать первые сообщения." },
+                  { role: "user", text: "Как вежливо закончить диалог?" },
+                  { role: "assistant", text: "Скажи, что было приятно общаться, но сейчас мало времени. Предложи вернуться к разговору позже." },
+                ].map((message, index) => (
+                  <div
+                    key={index}
+                    className={`max-w-[80%] px-4 py-3 rounded-2xl ${
+                      message.role === "assistant"
+                        ? "bg-secondary/60 rounded-bl-md"
+                        : "bg-gradient-to-r from-neon-purple/80 to-neon-pink/80 text-foreground rounded-br-md ml-auto"
+                    }`}
+                  >
+                    {message.role === "assistant" && (
+                      <div className="flex items-center gap-2 text-xs text-primary mb-1">
+                        <Sparkles size={14} /> AI-агент
+                      </div>
+                    )}
+                    <p className="text-sm text-foreground/90">{message.text}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="rounded-xl bg-secondary/40 border border-glass-border/60 p-4 flex items-center justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-wide text-muted-foreground">Подсказок от AI</p>
+                  <p className="text-lg font-semibold">3 доступны на бесплатном плане</p>
+                </div>
+                <Link to="/pricing">
+                  <Button variant="outline" size="sm">Расширить</Button>
+                </Link>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Features */}
       <section className="py-24 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neon-purple/5 to-transparent" />
@@ -198,6 +361,126 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
                 <p className="text-sm text-muted-foreground">{feature.description}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Social proof */}
+      <section className="py-20 bg-secondary/20 border-y border-glass-border/40">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+            <div>
+              <p className="text-sm text-primary mb-2 flex items-center gap-2">
+                <Users size={16} /> Истории пользователей
+              </p>
+              <h2 className="text-3xl font-bold">Найди любовь с NovaDate AI</h2>
+              <p className="text-muted-foreground max-w-2xl mt-2">
+                Реальные отзывы и результаты людей, которые воспользовались AI-подбором и подсказками в чатах.
+              </p>
+            </div>
+            <Link to="/blog" className="text-primary hover:underline flex items-center gap-1 text-sm">
+              Читать больше историй <ArrowRight size={16} />
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {testimonials.map((item) => (
+              <Card key={item.name} variant="glass" className="p-6 flex flex-col gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
+                    <Quote size={18} className="text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-semibold">{item.name}</p>
+                    <p className="text-sm text-muted-foreground">{item.city}</p>
+                  </div>
+                </div>
+                <p className="text-sm text-muted-foreground flex-1">{item.story}</p>
+                <div className="flex items-center gap-2 text-sm text-primary">
+                  <BadgeCheck size={16} /> {item.result}
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing preview */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-10">
+            <div>
+              <p className="text-sm text-primary mb-2 flex items-center gap-2">
+                <Sparkles size={16} /> Планы для разного опыта
+              </p>
+              <h2 className="text-3xl font-bold">Выберите подходящий доступ</h2>
+              <p className="text-muted-foreground max-w-xl mt-2">
+                Начните бесплатно или возьмите Премиум + AI, чтобы открыть безлимитные подсказки и глубокий анализ профиля.
+              </p>
+            </div>
+            <Link to="/pricing">
+              <Button variant="outline">Смотреть все тарифы</Button>
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {pricingPreview.map((plan) => (
+              <Card
+                key={plan.id}
+                variant={plan.highlighted ? "gradient" : "glass"}
+                className="p-6 flex flex-col gap-4"
+              >
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xl font-semibold">{plan.name}</h3>
+                  {plan.highlighted && (
+                    <span className="text-xs px-2 py-1 rounded-full bg-foreground/10 text-foreground">Топ выбор</span>
+                  )}
+                </div>
+                <ul className="space-y-2 text-sm text-muted-foreground flex-1">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-2">
+                      <Shield size={14} className="text-primary" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link to="/pricing">
+                  <Button variant={plan.highlighted ? "default" : "outline"} className="w-full">
+                    {plan.highlighted ? "Попробовать 7 дней" : "Подробнее"}
+                  </Button>
+                </Link>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Safety preview */}
+      <section className="py-20 bg-secondary/20 border-y border-glass-border/40">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+            <div>
+              <p className="text-sm text-primary mb-2 flex items-center gap-2">
+                <ShieldCheck size={16} /> Безопасность
+              </p>
+              <h2 className="text-3xl font-bold">Мы заботимся о твоей приватности</h2>
+              <p className="text-muted-foreground max-w-2xl mt-2">
+                Проверка профилей, инструменты блокировки и советы по безопасным встречам встроены в продукт.
+              </p>
+            </div>
+            <Link to="/safety">
+              <Button variant="outline" size="sm">Подробнее</Button>
+            </Link>
+          </div>
+          <div className="grid md:grid-cols-3 gap-4">
+            {safetyTips.map((tip) => (
+              <Card key={tip} variant="glass" className="p-4 flex items-start gap-3">
+                <div className="h-10 w-10 rounded-xl bg-primary/15 flex items-center justify-center">
+                  <Shield size={18} className="text-primary" />
+                </div>
+                <p className="text-sm text-muted-foreground">{tip}</p>
               </Card>
             ))}
           </div>

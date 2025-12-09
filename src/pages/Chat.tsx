@@ -107,7 +107,7 @@ export default function Chat() {
     setLoadingSuggestions(false);
   };
 
-  const useSuggestion = (text: string) => {
+  const applySuggestion = (text: string) => {
     sendMessage(text);
   };
 
@@ -226,7 +226,7 @@ export default function Chat() {
                         <button
                           key={index}
                           className="w-full text-left text-sm p-2 rounded-lg bg-secondary/30 hover:bg-secondary/50 transition-colors"
-                          onClick={() => useSuggestion(suggestion)}
+                          onClick={() => applySuggestion(suggestion)}
                         >
                           {suggestion}
                         </button>

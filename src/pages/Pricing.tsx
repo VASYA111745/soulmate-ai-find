@@ -1,4 +1,5 @@
 import { Check, Sparkles, Crown, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { APP_CONFIG, TEXTS } from "@/config/app";
@@ -41,7 +42,8 @@ const plans = [
       { text: "ИИ-помощник (базовый)", included: true },
       { text: "Приоритетная поддержка", included: false },
     ],
-    cta: "Попробовать бесплатно",
+    cta: "Попробовать за 1₽",
+    ctaLink: "/checkout?plan=premium&amount=1",
     popular: true,
     disabled: false,
   },
@@ -61,7 +63,8 @@ const plans = [
       { text: "ИИ-помощник (полный)", included: true },
       { text: "Приоритетная поддержка", included: true },
     ],
-    cta: "Попробовать бесплатно",
+    cta: "Оформить за 1299₽",
+    ctaLink: "/checkout?plan=premium-ai&amount=1299",
     popular: false,
     disabled: false,
   },
@@ -141,13 +144,23 @@ export default function Pricing() {
                   ))}
                 </ul>
 
-                <Button
-                  variant={plan.popular ? "gradient" : "outline"}
-                  className="w-full"
-                  disabled={plan.disabled}
-                >
-                  {plan.cta}
-                </Button>
+                {plan.ctaLink && !plan.disabled ? (
+                  <Button
+                    asChild
+                    variant={plan.popular ? "gradient" : "outline"}
+                    className="w-full"
+                  >
+                    <Link to={plan.ctaLink}>{plan.cta}</Link>
+                  </Button>
+                ) : (
+                  <Button
+                    variant={plan.popular ? "gradient" : "outline"}
+                    className="w-full"
+                    disabled={plan.disabled}
+                  >
+                    {plan.cta}
+                  </Button>
+                )}
               </CardContent>
             </Card>
           ))}
